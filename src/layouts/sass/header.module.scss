@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+.header {
+    background-color: $primary;
+    padding: 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+}

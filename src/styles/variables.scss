@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500&family=Krub:ital@1&family=Lato:wght@400;700&display=swap');
+$Abhaya: "Abhaya",
+sans-serif;
+// colors
+$dark: rgb(29,
+29,
+29);
+$light: #fff;
+$primary: rgba(239,
+166,
+147,
+1);
+$bg: rgb(244,
+244,
+255);
+// spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+// border radius
+$borderRadius: 12px;
+// header height
+$headerHeight: 100px;
+//paddings buttons
+$paddingButtons: 15px;
+$borderRadius: 28px;
+@mixin breakpoint($point) {
+    @if $point==md {
+        // 768px
+        @media (min-width: 48em) {
+            @content;
+        }
+    }
+}

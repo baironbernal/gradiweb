@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+.cardProduct {
+    height: 300px;
+    width: 300px;
+    &__image {
+        position: relative;
+        background-position: center top;
+        background-size: 100% cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+    }
+    &__button {
+        position: absolute;
+        border-radius: $borderRadius;
+        bottom: 0;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $primary;
+        color: $light;
+        text-align: center;
+        padding: $paddingButtons;
+    }
+}
