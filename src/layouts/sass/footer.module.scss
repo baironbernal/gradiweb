@@ -1,8 +1,44 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins/mixins.scss";
 .footer {
     height: 550px;
     width: 100%;
-    position: absolute;
-    bottom: 0;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 25px;
+    padding: 30px;
+    h3 {
+        font-size: 44px;
+        font-weight: 700;
+    }
+    p {
+        color: $gray;
+        font-size: 15px;
+        font-family: $Signika;
+    }
+    &__form {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        font-family: $Signika;
+        input {
+            height: 48px;
+            padding: 20px;
+            border-radius: $borderRadius;
+            border: 1px solid $primary;
+        }
+        input:focus {
+            outline: none;
+        }
+        button {
+            @include button($borderRadius, 100px, $primary, $light, $paddingButtons);
+        }
+        button:hover {
+            @include buttonHover($secondly, $light)
+        }
+    }
 }

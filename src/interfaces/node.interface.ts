@@ -8,5 +8,6 @@ export interface Node {
     totalInventory: number
     tracksInventory: boolean
     featuredImage: FeaturedImage
-    prices: Prices
+    prices: Prices,
+    rating?: number
   }

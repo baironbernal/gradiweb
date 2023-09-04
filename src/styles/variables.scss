@@ -1,18 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500&family=Krub:ital@1&family=Lato:wght@400;700&display=swap');
-$Abhaya: "Abhaya",
+$Abhaya: "Abhaya Libre",
 sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500&family=Krub:ital@1&family=Lato:wght@400;700&family=Signika:wght@500&display=swap');
+$Signika: "Signika",
+sans-serif;
+@font-face {
+    font-family: 'neogrotesk';
+    src: local('neogrotesk'), url('./fonts/negrotesk/Fontspring-DEMO-neogroteskess-regular.otf') format('otf');
+}
+
 // colors
-$dark: rgb(29,
-29,
-29);
+$dark: rgba(68,
+73,
+80,
+1);
 $light: #fff;
 $primary: rgba(239,
 166,
 147,
 1);
-$bg: rgb(244,
-244,
-255);
+$gray: rgba(147,
+147,
+147,
+1);
+$secondly: #FB9887;
 // spacing
 $spacing-md: 16px;
 $spacing-lg: 32px;

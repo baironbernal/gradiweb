@@ -14,7 +14,6 @@ export const productSlice = createSlice({
       state.isLoading = true
     },
     setProducts: (state, action) => {
-      console.log("Esta es la info que trae" + JSON.stringify(action.payload))
       state.isLoading = false;
       state.nodes = action.payload.nodes
     }

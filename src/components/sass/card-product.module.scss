@@ -1,25 +1,46 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins/mixins.scss";
 .cardProduct {
-    height: 300px;
+    height: 500px;
     width: 300px;
+    margin: 0 auto;
     &__image {
         position: relative;
         background-position: center top;
         background-size: 100% cover;
         background-repeat: no-repeat;
-        height: 100%;
+        height: 330px;
         width: 100%;
     }
     &__button {
         position: absolute;
-        border-radius: $borderRadius;
+        @include button($borderRadius, 90%, $light, $primary, $paddingButtons);
         bottom: 0;
-        width: 90%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: $primary;
-        color: $light;
-        text-align: center;
-        padding: $paddingButtons;
+    }
+    &__button:hover {
+        @include buttonHover($secondly, $light)
+    }
+    &__info {
+        h3 {
+            margin: 12px 0;
+            font-family: $Signika;
+            text-align: left;
+        }
+    }
+    &__infoFeatures {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__prices {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 15px;
+        span {
+            display: block;
+            text-decoration: line-through;
+        }
     }
 }

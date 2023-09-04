@@ -1,0 +1,19 @@
+@import "../variables.scss";
+@mixin button($borderRadious, $width, $background, $color, $padding) {
+    border-radius: $borderRadious;
+    width: $width;
+    background-color: $background;
+    color: $color;
+    font-family: "neogrotesk";
+    padding: $padding;
+    text-align: center;
+    border: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@mixin buttonHover($background, $color) {
+    background-color: $background;
+    color: $color;
+}
