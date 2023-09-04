@@ -25,7 +25,7 @@
     &__info {
         h3 {
             margin: 12px 0;
-            font-family: $Signika;
+            font-family: $filson;
             text-align: left;
         }
     }
@@ -37,6 +37,7 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
+        font-family: $filson;
         gap: 15px;
         span {
             display: block;

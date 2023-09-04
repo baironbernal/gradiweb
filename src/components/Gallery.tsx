@@ -1,7 +1,6 @@
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-
-import { useEffect } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useState } from 'react'
 import { getProducts } from '../store/slices/product/thunks';
 import { useAppDispatch, useAppSelector } from '../hooks/store.hook';
 
@@ -14,25 +13,34 @@ const Gallery = () => {
     const dispatch = useAppDispatch();
     const products = useAppSelector(state => state.products);
 
-    const swiper = useSwiper();    
+    const [swiper, setSwiper] = useState<Swiper>();
+    const nextSlide = () => {
+      swiper.slideNext();
+    };
+    const prevSlide = () => {
+      swiper.slidePrev();
+    };
+
 
   useEffect(() => {
     dispatch(getProducts())
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={classes.gallery}>
       <div className={classes.gallery__header}>
         <h1>Discover our planet friendly offer</h1>
         <div className={classes.gallery__headerButtons}>
-          <img src="icons/left.png" id="swiper-forward" alt=""  />
-          <img src="icons/right.png" id="swiper-back" alt="" />
+          <img src="icons/left.png" id="swiper-forward"  onClick={prevSlide} alt=""  />
+          <img src="icons/right.png" id="swiper-back" onClick={nextSlide}  alt="" />
         </div>
       </div>
       <Swiper
       spaceBetween={'1rem'}
       slidesPerView={1}
-      navigation={{ nextEl: "#swiper-forward", prevEl: "#swiper-back" }}
+      onSwiper={(s) => {
+        setSwiper(s);
+      }}
       breakpoints={{
         870: {
           slidesPerView: 2,

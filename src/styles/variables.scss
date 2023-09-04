@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500&family=Krub:ital@1&family=Lato:wght@400;700&display=swap');
 $Abhaya: "Abhaya Libre",
 sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500&family=Krub:ital@1&family=Lato:wght@400;700&family=Signika:wght@500&display=swap');
-$Signika: "Signika",
+$filson: "Filson Pro",
 sans-serif;
-@font-face {
-    font-family: 'neogrotesk';
-    src: local('neogrotesk'), url('./fonts/negrotesk/Fontspring-DEMO-neogroteskess-regular.otf') format('otf');
-}
-
+$Neogrotesk: "Neogrotesk Ess Light",
+sans-serif;
 // colors
 $dark: rgba(68,
 73,

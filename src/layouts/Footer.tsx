@@ -1,22 +1,31 @@
-import { ChangeEvent, useState } from 'react'
 import classes from './sass/footer.module.scss'
+import Swal from 'sweetalert2'
+import { useForm } from 'react-hook-form'
+
 
 const Footer = () => {
-  const [data, setData] = useState({
-    email: '',
-})
+ 
 
-  const handleInputChange = (event:ChangeEvent<HTMLInputElement>) => {
-    setData({
-        ...data,
-        [event.target.name] : event.target.value
+ const { register, handleSubmit } = useForm();
+ const onSubmit = (d) => {
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
     })
-}
-
-  const sendEmail = (event:ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault()
-    console.log('enviando data...' + data.email)
-}
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Newsletter send ' + d.email
+    })
+ }
 
   return (
     <div>
@@ -25,12 +34,12 @@ const Footer = () => {
         <p>
             If you are missing something and don't want to miss future promotions or our future products
         </p>
-        <form className={classes.footer__form} onSubmit={()=>sendEmail}>
-                <div className="col-md-3">
-                    <input type="email" placeholder="Your Email" 
-                     onChange={handleInputChange} name="email"></input>
+        <form className={classes.footer__form} onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <input type="email" {...register("email")}
+                    placeholder="Your Email" name="email"></input>
                 </div>
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                <button type="submit">Enviar</button>
             </form>
       </footer>
       

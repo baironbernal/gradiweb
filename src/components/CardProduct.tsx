@@ -1,7 +1,7 @@
 import { Rating } from '@mui/material';
 import { FeaturedImage } from '../interfaces/featuted-image.interface'
 import classes from './sass/card-product.module.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Prices } from '../interfaces/prices/prices.interface';
 import { NumericFormat } from 'react-number-format';
 
@@ -9,11 +9,26 @@ import { NumericFormat } from 'react-number-format';
 const CardProduct = ({ title, featuredImage, tags, prices } :{title:string, featuredImage: FeaturedImage, tags: string[], prices: Prices}) => {
     const [value, setValue] = useState<number | null>(2);
 
+    useEffect(() => {
+        rateAverage(tags);
+    }, [tags])
+    
 
-    const ratingMedia = ({tags}: {tags: string[]}) => {
-        
-    } 
-
+      const rateAverage = (tags: string[]) => {
+        //filter tags numerics
+        const filteredArray: number[] = [];
+        tags.map((tag) => {
+            if (tag.match(/^-?\d+$/)) {
+                filteredArray.push(Number(tag))
+            }
+            if(filteredArray.length >= 2) {
+                const average = filteredArray.reduce((a, b) => a + b, 0) / filteredArray.length;
+               return setValue(average/100)
+            }
+            return setValue(Math.round(filteredArray[0]/100))
+        });
+      };
+      
   return (
     <article className={classes.cardProduct}>
         <div className={classes.cardProduct__image} style={{
@@ -36,6 +51,7 @@ const CardProduct = ({ title, featuredImage, tags, prices } :{title:string, feat
                     onChange={(event, newValue) => {
                         setValue(newValue);
                     }}
+                    readOnly
                     />
                 </div>
                 <div className={classes.cardProduct__prices}>
