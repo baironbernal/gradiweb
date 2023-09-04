@@ -13,7 +13,7 @@ const Gallery = () => {
     const dispatch = useAppDispatch();
     const products = useAppSelector(state => state.products);
 
-    const [swiper, setSwiper] = useState<Swiper>();
+    const [swiper, setSwiper] = useState<any>();
     const nextSlide = () => {
       swiper.slideNext();
     };

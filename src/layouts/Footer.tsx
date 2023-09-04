@@ -7,7 +7,7 @@ const Footer = () => {
  
 
  const { register, handleSubmit } = useForm();
- const onSubmit = (d) => {
+ const onSubmit = () => {
 
     const Toast = Swal.mixin({
       toast: true,
@@ -23,7 +23,7 @@ const Footer = () => {
     
     Toast.fire({
       icon: 'success',
-      title: 'Newsletter send ' + d.email
+      title: 'Newsletter send '
     })
  }
 

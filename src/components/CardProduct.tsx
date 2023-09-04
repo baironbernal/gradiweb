@@ -48,8 +48,8 @@ const CardProduct = ({ title, featuredImage, tags, prices } :{title:string, feat
                     <Rating
                     name="simple-controlled"
                     value={value}
-                    onChange={(event, newValue) => {
-                        setValue(newValue);
+                    onChange={(newValue) => {
+                        setValue(Number(newValue));
                     }}
                     readOnly
                     />
